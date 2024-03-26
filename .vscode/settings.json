@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "resources"
+    ],
+    "cmake.configureOnOpen": true
+}
