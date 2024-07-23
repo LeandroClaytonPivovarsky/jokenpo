@@ -2,5 +2,6 @@
     "java.project.sourcePaths": [
         "resources"
     ],
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "/home/aluno/Leandro/jokenpo/linux/flutter"
 }

@@ -1,8 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -55,18 +53,25 @@ class Jokenpo extends StatefulWidget {
 }
 
 class _JokenpoState extends State<Jokenpo> {
-  final _imgPadrao = Image(image: AssetImage('assets/images/padrao.png'));
+  final _imgPadrao = const Image(image: AssetImage('assets/images/padrao.png'));
 
-  var _imgApp = Image(image: AssetImage('assets/images/padrao.png'));
-  var _imgAppMaquina = Image(image: AssetImage('assets/images/padrao.png'));
+  var _imgApp = const Image(image: AssetImage('assets/images/padrao.png'));
+  var _imgAppMaquina =
+      const Image(image: AssetImage('assets/images/padrao.png'));
   String _mensagem = 'Resultado';
   int numVitorias = 0;
   int numDerrotas = 0;
   int numEmpates = 0;
 
+  String modoDeJogo = '';
+
+  int selecionaDificuldade() {
+    return 0;
+  }
+
   void _joga(String opcaoJogador) {
-    final lista_opcoes = ['pedra', 'papel', 'tesoura'];
-    final opcaoApp = lista_opcoes[Random().nextInt(3)];
+    final listaOpcoes = ['pedra', 'papel', 'tesoura'];
+    final opcaoApp = listaOpcoes[Random().nextInt(3)];
 
     setState(() {
       _imgApp = Image(image: AssetImage('assets/images/$opcaoJogador.png'));
@@ -76,7 +81,6 @@ class _JokenpoState extends State<Jokenpo> {
   }
 
   String _resultado(String opcaoJogador, String opcaoApp) {
-    final mensagem;
 
     if ((opcaoJogador == 'pedra' && opcaoApp == 'tesoura') ||
         (opcaoJogador == 'papel' && opcaoApp == 'pedra') ||
@@ -102,8 +106,17 @@ class _JokenpoState extends State<Jokenpo> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Column(
+            children: [
+              Text(
+                "É O JOKENPÔ DO LEANDRÃO",
+                style: TextStyle(color: Colors.red, fontSize: 36),
+              ),
+
+            ],
+          ),
           Padding(
-            padding: EdgeInsets.only(bottom: 30),
+            padding: const EdgeInsets.only(bottom: 30),
             child: textHome(_mensagem),
           ),
           Row(
@@ -172,8 +185,8 @@ class _JokenpoState extends State<Jokenpo> {
             _imgAppMaquina = _imgPadrao;
           });
         },
-        child: const Icon(Icons.settings_backup_restore_sharp),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        child: const Icon(Icons.settings_backup_restore_sharp),
       ),
     );
   }
@@ -181,7 +194,7 @@ class _JokenpoState extends State<Jokenpo> {
   Text textHome(String text) {
     return Text(
       text,
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
     );
   }
 
