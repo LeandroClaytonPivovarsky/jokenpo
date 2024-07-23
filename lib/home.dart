@@ -119,7 +119,7 @@ class _JokenpoState extends State<Jokenpo> {
                 ),
                 Align(alignment: Alignment.center, child: _imgApp),
               ]),
-              Column(
+              const Column(
                 children: [
                   Text(
                     "X",
